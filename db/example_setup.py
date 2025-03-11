@@ -57,8 +57,8 @@ print(res.fetchall())
 
 # If we want to insert many values from data we already have, we can use the execute many command
 # This will take data and insert it based on position
-list2 = [('Nu Udra',), ('Rompopolo',), ('Ray Dau',), ('Nerscylla',), ('Hirubami',), ('Ajakatura',)]
-
+# list2 = [('Nu Udra',), ('Rompopolo',), ('Ray Dau',), ('Nerscylla',), ('Hirubami',), ('Ajakatura',)]
+list2 = ['a', 'b', 'c']
 cur.executemany("""
 INSERT INTO large_monsters VALUES(?)
 """, list2)
