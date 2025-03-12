@@ -1,3 +1,7 @@
+DELETE FROM large_monsters;
+DELETE FROM locales;
+DELETE FROM monster_locales;
+
 INSERT INTO large_monsters (name, type, characteristics, helpfulHints) VALUES (
     'Chatacabra',
     'Amphibian',

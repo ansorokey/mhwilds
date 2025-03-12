@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS large_monsters;
 CREATE TABLE "large_monsters" (
   "monsterId" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  "name" varchar,
+  "name" varchar UNIQUE,
   "type" varchar,
   "characteristics" varchar,
   "helpfulHints" varchar
@@ -10,7 +10,7 @@ CREATE TABLE "large_monsters" (
 DROP TABLE IF EXISTS locales;
 CREATE TABLE "locales" (
   "localeId" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  "name" varchar
+  "name" varchar UNIQUE
 );
 
 DROP TABLE IF EXISTS monster_locales;
@@ -34,25 +34,25 @@ CREATE TABLE "monster_attacks" (
 DROP TABLE IF EXISTS special_attack_types;
 CREATE TABLE "special_attack_types" (
   "attackId" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  "name" varchar
+  "name" varchar UNIQUE
 );
 
 DROP TABLE IF EXISTS damage_types;
 CREATE TABLE "damage_types" (
   "damageTypeId" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  "name" varchar
+  "name" varchar UNIQUE
 );
 
 DROP TABLE IF EXISTS status_types;
 CREATE TABLE "status_types" (
   "statusId" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  "name" varchar
+  "name" varchar UNIQUE
 );
 
 DROP TABLE IF EXISTS monster_hide_parts;
 CREATE TABLE "monster_hide_parts" (
   "monsterHidePartId" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  "name" varchar,
+  "name" varchar UNIQUE,
   "monsterId" int,
   FOREIGN KEY ("monsterId") REFERENCES "large_monsters"("monsterId")
 );
@@ -60,7 +60,7 @@ CREATE TABLE "monster_hide_parts" (
 DROP TABLE IF EXISTS hunting_items;
 CREATE TABLE "hunting_items" (
   "itemId" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  "name" varchar
+  "name" varchar UNIQUE
 );
 
 DROP TABLE IF EXISTS monster_item_effects;
