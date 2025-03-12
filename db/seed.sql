@@ -14,6 +14,6 @@ INSERT INTO locales (name) VALUES (
 );
 
 INSERT INTO monster_locales (monsterId, localeId) VALUES (
-    '1',
-    '1'
+    (SELECT monsterId from large_monsters WHERE name = 'Chatacabra'),
+    (SELECT localeId from locales WHERE name = 'Plains')
 );
