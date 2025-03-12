@@ -7,5 +7,6 @@ cur = con.cursor()
 
 cur.execute("DROP TABLE IF EXISTS small_monsters")
 cur.execute("DROP TABLE IF EXISTS large_monsters")
+cur.execute("CREATE TABLE large_monsters(name, type, )")
 
 con.close()
