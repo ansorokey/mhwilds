@@ -38,8 +38,23 @@ INSERT INTO monster_locales (monsterId, localeId) VALUES (
     (SELECT id from locales WHERE name = 'Plains')
 );
 
-INSERT INTO monster_damage_effects (monsterId, damageId, effectiveness) VALUES (
-    (SELECT id from large_monsters WHERE name = 'Chatacabra'),
+INSERT INTO monster_hide_parts (name, monsterId) VALUES
+(
+    'Head',
+    (SELECT id from large_monsters WHERE name = 'Chatacabra')
+),(
+    'Tongue',
+    (SELECT id from large_monsters WHERE name = 'Chatacabra')
+),(
+    'Torso',
+    (SELECT id from large_monsters WHERE name = 'Chatacabra')
+);
+
+INSERT INTO monster_damage_effects (monsterHidePartId, damageId, effectiveness) VALUES 
+(
+    (SELECT id from monster_hide_parts 
+        WHERE monsterId = (SELECT id from large_monsters WHERE name = 'Chatacabra') 
+        and name = "Head"),
     (SELECT id from damage_types WHERE name = 'Sharp'),
     4
 );

@@ -41,14 +41,21 @@ CREATE TABLE "damage_types" (
   "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   "name" varchar UNIQUE
 );
+DROP TABLE IF EXISTS monster_hide_parts;
+CREATE TABLE "monster_hide_parts" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" varchar,
+    "monsterId" INTEGER,
+    FOREIGN KEY ("monsterId") REFERENCES "large_monsters"("id")
+);
 
 DROP TABLE IF EXISTS monster_damage_effects;
 CREATE TABLE "monster_damage_effects" (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    monsterId INTEGER,
+    monsterHidePartId INTEGER,
     damageId INTEGER,
     effectiveness INT DEFAULT 0,
-    FOREIGN KEY ("monsterId") REFERENCES "large_monsters"("id"),
+    FOREIGN KEY ("monsterHidePartId") REFERENCES "monster_hide_parts"("id"),
     FOREIGN KEY ("damageId") REFERENCES "damage_types"("id")
 );
 
