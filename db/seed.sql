@@ -37,3 +37,14 @@ INSERT INTO hunting_items (monsterId, flash_pods, sonic_pods, shock_traps, pitfa
     (SELECT id from large_monsters WHERE name = 'Chatacabra'),
     1, 0, 1, 1
 );
+
+INSERT INTO monster_rewards (monsterId, name, description, rarity, value, rank, frequency) VALUES
+(
+    (SELECT id from large_monsters WHERE name = 'Chatacabra'),
+    'Chatacabra Carapace',
+    'Description goes here',
+    6,
+    1700,
+    'low',
+    4
+);
