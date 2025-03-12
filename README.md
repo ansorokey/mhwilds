@@ -21,4 +21,6 @@ sqlite3 .read migrate.sql
 ```
 
 ## Seeding
-`.read seed.sql`
+`sqlite3 .read seed.sql`
+
+## Querying

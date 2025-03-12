@@ -41,6 +41,7 @@ CREATE TABLE "damage_types" (
   "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   "name" varchar UNIQUE
 );
+
 DROP TABLE IF EXISTS monster_hide_parts;
 CREATE TABLE "monster_hide_parts" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
