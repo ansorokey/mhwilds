@@ -5,40 +5,13 @@ INSERT INTO large_monsters (name, type, characteristics, helpfulHints) VALUES (
     'Helpful hints go here'
 );
 
-INSERT INTO locales (name) VALUES (
-    'Plains'
-);
-
-INSERT INTO damage_types (name) VALUES
-    ('Sharp'),
-    ('Blunt'),
-    ('Ranged'),
-    ('Fire'),
-    ('Water'),
-    ('Thunder'),
-    ('Ice'),
-    ('Dragon');
-
-INSERT INTO status_types (name) VALUES
-    ('Poison'),
-    ('Sleep'),
-    ('Paralysis'),
-    ('Blastblight'),
-    ('Stun'),
-    ('Exhaust');
-
-INSERT INTO hunting_items (name) VALUES
-    ('Flash Pod'),
-    ('Sonic Bomb'),
-    ('Shock Trap'),
-    ('Pitfall Trap');
-
-INSERT INTO monster_locales (monsterId, localeId) VALUES (
+INSERT INTO monster_locales (monsterId, plains, forest, basin, cliffs, wyveria) VALUES 
+(
     (SELECT id from large_monsters WHERE name = 'Chatacabra'),
-    (SELECT id from locales WHERE name = 'Plains')
+    1, 0, 0, 0, 0
 );
 
-INSERT INTO monster_parts (name, monsterId, sharp, blunt, ranged, fire, water, thunder, ice, dragon) VALUES
+INSERT INTO hide_weaknesses (name, monsterId, sharp, blunt, ranged, fire, water, thunder, ice, dragon) VALUES
 (
     'Head',
     (SELECT id from large_monsters WHERE name = 'Chatacabra'),
@@ -50,5 +23,17 @@ INSERT INTO monster_parts (name, monsterId, sharp, blunt, ranged, fire, water, t
 ),(
     'Torso',
     (SELECT id from large_monsters WHERE name = 'Chatacabra'),
-    4, 4, 4, 1, 1, 2, 1, 0
+    3, 3, 3, 1, 1, 2, 1, 0
+);
+
+INSERT INTO status_effects (monsterId, poison, sleep, paralysis, blastblight, stun, exhaust) VALUES
+(
+    (SELECT id from large_monsters WHERE name = 'Chatacabra'),
+    3, 2, 3, 2, 3, 2
+);
+
+INSERT INTO hunting_items (monsterId, flash_pods, sonic_pods, shock_traps, pitfall_traps) VALUES
+(
+    (SELECT id from large_monsters WHERE name = 'Chatacabra'),
+    1, 0, 1, 1
 );

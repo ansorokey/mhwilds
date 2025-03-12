@@ -5,10 +5,9 @@ ON large_monsters.id = monster_locales.monsterId
 JOIN locales
 ON locales.id = monster_locales.localeId;
 
--- SELECT MONSTERS AND THEIR PARTS AND PART WEAKNESSES
+-- SELECT PARTS AND PART WEAKNESSES by monster
 SELECT  
     monster_parts.*
 FROM large_monsters JOIN monster_parts
 ON large_monsters.id = monster_parts.monsterId
 WHERE large_monsters.name = 'Chatacabra';
-
