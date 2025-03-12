@@ -50,14 +50,20 @@ CREATE TABLE "monster_hide_parts" (
     FOREIGN KEY ("monsterId") REFERENCES "large_monsters"("id")
 );
 
-DROP TABLE IF EXISTS monster_damage_effects;
-CREATE TABLE "monster_damage_effects" (
+DROP TABLE IF EXISTS monster_parts;
+CREATE TABLE "monster_parts" (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    monsterHidePartId INTEGER,
-    damageId INTEGER,
-    effectiveness INT DEFAULT 0,
-    FOREIGN KEY ("monsterHidePartId") REFERENCES "monster_hide_parts"("id"),
-    FOREIGN KEY ("damageId") REFERENCES "damage_types"("id")
+    name varchar,
+    sharp INT DEFAULT 0,
+    blunt INT DEFAULT 0,
+    ranged INT DEFAULT 0,
+    fire INT DEFAULT 0,
+    water INT DEFAULT 0,
+    thunder INT DEFAULT 0,
+    ice INT DEFAULT 0,
+    dragon INT DEFAULT 0,
+    monsterId INTEGER,
+    FOREIGN KEY ("monsterId") REFERENCES "large_monsters"("id")
 );
 
 DROP TABLE IF EXISTS status_types;
