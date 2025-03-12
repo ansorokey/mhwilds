@@ -11,7 +11,7 @@
     <div id="guide-ctn" class="f jcse">
         <div id="guide-list">
             {% for monster in data %}
-            <div>{{monster.name}}</div>
+            <a href="monsters/{{ monster.id }}">{{monster.name}}</a>
             {% endfor %}
         <div id="guide-details">
             <p>Monster</p>

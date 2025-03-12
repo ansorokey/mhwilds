@@ -20,18 +20,18 @@ def returnData():
         }
     }
 
+@app.route('/monsters/<int:monsterId>', methods=['GET'])
+def getMonster(monsterId):
+    return f'<p>Fetch monster with id {monsterId}'
+
 @app.route('/monsters', methods=['GET'])
 def getAllMonsters():
     con = sqlite3.connect(dbsrc)
     cur = con.cursor()
-    res = cur.execute("SELECT name FROM large_monsters;")
-    data = [{'name': entry[0]} for entry in res]
+    res = cur.execute("SELECT id, name FROM large_monsters;")
+    data = [{'name': entry[1], 'id': entry[0]} for entry in res.fetchall()]
     cur.close()
     return render_template(
         'large_monsters.html', 
         data = data
     )
-
-@app.route('/monsters/<int:monsterId>', methods=['GET'])
-def getMonster(monsterId):
-    return f'<p>Fetch monster with id {monsterId}'

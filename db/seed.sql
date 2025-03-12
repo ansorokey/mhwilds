@@ -4,9 +4,15 @@ INSERT INTO large_monsters (name, type, characteristics, helpfulHints) VALUES (
     'Characteristics go here',
     'Helpful hints go here'
 ), (
-    'Lala Barina'
+    'Lala Barina',
+    NULL,
+    NULL,
+    NULL
 ),(
-    'Balahara'
+    'Balahara',
+    NULL,
+    NULL,
+    NULL
 );
 
 INSERT INTO monster_locales (monsterId, plains, forest, basin, cliffs, wyveria) VALUES 
