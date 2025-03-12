@@ -59,3 +59,15 @@ CREATE TABLE "hunting_items" (
   FOREIGN KEY ("monsterId") REFERENCES "large_monsters"("id")
 );
 
+DROP TABLE IF EXISTS monster_rewards;
+CREATE TABLE monster_rewards (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "monsterId" INTEGER,
+    name varchar,
+    description varchar,
+    value INTEGER DEFAULT 0,
+    rarity INTEGER DEFAULT 1,
+    rank varchar,
+    frequency INTEGER DEFAULT 1,
+    FOREIGN KEY ("monsterId") REFERENCES "large_monsters"("id")
+);
