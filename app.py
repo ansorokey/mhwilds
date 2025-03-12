@@ -22,7 +22,7 @@ def returnData():
 
 @app.route('/monsters/<int:monsterId>', methods=['GET'])
 def getMonster(monsterId):
-    return f'<p>Fetch monster with id {monsterId}'
+    return {'message': f'<p>Fetch monster with id {monsterId}' }
 
 @app.route('/monsters', methods=['GET'])
 def getAllMonsters():
