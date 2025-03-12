@@ -9,3 +9,16 @@ The front end is fullstack html, css, and javascript.
 # Quick References
 The sqlite3 python library
 - https://docs.python.org/3/library/sqlite3.html
+
+# Running the database
+## Install sqlite3
+`sudo apt install sqlite3`
+
+## Migrating
+```
+sqlite3 database.db
+sqlite3 .read migrate.sql
+```
+
+## Seeding
+`.read seed.sql`
