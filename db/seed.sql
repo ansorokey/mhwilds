@@ -1,19 +1,33 @@
-INSERT INTO large_monsters (name, type, characteristics, helpfulHints) VALUES (
-    'Chatacabra',
-    'Amphibian',
-    'Characteristics go here',
-    'Helpful hints go here'
-), (
-    'Lala Barina',
-    NULL,
-    NULL,
-    NULL
-),(
-    'Balahara',
-    NULL,
-    NULL,
-    NULL
-);
+INSERT INTO large_monsters (name) VALUES 
+    ('Chatacabra'),
+    ('Quematrice'),
+    ('Lala Barina'),
+    ('Congalala'),
+    ('Balahara'),
+    ('Doshaguma'),
+    ('Uth Duna'),
+    ('Rompopolo'),
+    ('Rey Dau'),
+    ('Nerscylla'),
+    ('Hirabami'),
+    ('Ajarakan'),
+    ('Nu Udra'),
+    ('Guardian Doshaguma'),
+    ('Guardian Rathalos'),
+    ('Jin Dahaad'),
+    ('Guardian Ebony Odogaron'),
+    ('Xu Wu'),
+    ('Guardian Arkveld'),
+    ('Zoh Shia'),
+    ('Guardian Fulgur Anjanath'),
+    ('Yian Kut-Ku'),
+    ('Gypceros'),
+    ('Rathian'),
+    ('Rathalos'),
+    ('Gravios'),
+    ('Blangonga'),
+    ('Gore Magala'),
+    ('Arkveld');
 
 INSERT INTO monster_locales (monsterId, plains, forest, basin, cliffs, wyveria) VALUES 
 (

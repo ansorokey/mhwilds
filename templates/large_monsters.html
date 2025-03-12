@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Large Monsters Field Guide</title>
 </head>
 <body>
     <h1>Large Monster Field Guide</h1>
-    <div id="guide-ctn" class="f jcse">
+    <div id="guide-ctn">
         <div id="guide-list">
             {% for monster in data %}
-            <a href="monsters/{{ monster.id }}">{{monster.name}}</a>
+            <div class="monster-listing">
+                <a href="monsters/{{ monster.id }}">{{monster.name}}</a>
+            </div>
             {% endfor %}
+        </div>
+
         <div id="guide-details">
             <p>Monster</p>
         </div>
