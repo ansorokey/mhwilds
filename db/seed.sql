@@ -3,6 +3,10 @@ INSERT INTO large_monsters (name, type, characteristics, helpfulHints) VALUES (
     'Amphibian',
     'Characteristics go here',
     'Helpful hints go here'
+), (
+    'Lala Barina'
+),(
+    'Balahara'
 );
 
 INSERT INTO monster_locales (monsterId, plains, forest, basin, cliffs, wyveria) VALUES 

@@ -10,7 +10,19 @@ The front end is fullstack html, css, and javascript.
 The sqlite3 python library
 - https://docs.python.org/3/library/sqlite3.html
 
-# Running the database
+Flask documentation
+- https://flask.palletsprojects.com/en/stable/quickstart/
+
+Jinja2 Formatting
+- https://jinja.palletsprojects.com/en/stable/templates/
+
+SQLAlchemy
+- https://flask-sqlalchemy.readthedocs.io/en/stable/quickstart/
+
+# Running the Application
+## Install python virtual environment
+`sudo apt install python3.10-venv`
+
 ## Install sqlite3
 `sudo apt install sqlite3`
 
@@ -24,3 +36,9 @@ sqlite3 .read migrate.sql
 `sqlite3 .read seed.sql`
 
 ## Querying
+
+## Running flask
+flask--app app run
+
+## Install SQLAlchemy
+`pip install -U Flask-SQLAlchemy`
