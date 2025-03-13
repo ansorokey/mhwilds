@@ -22,7 +22,29 @@ def returnData():
 
 @app.route('/monsters/<int:monsterId>', methods=['GET'])
 def getMonster(monsterId):
-    return {'message': f'<p>Fetch monster with id {monsterId}' }
+    con = sqlite3.connect(dbsrc)
+    cur = con.cursor()
+    res = cur.execute(f"SELECT id, name, characteristics, helpfulHints FROM large_monsters WHERE id={monsterId};").fetchone()
+    if res is None:
+        con.close()
+        return {'message': 'FAIL'}
+
+    monster = {
+        'message': 'OK',
+        'id': res[0],
+        'name': res[1],
+        'characteristics': res[2],
+        'helpfulHints':res[3]
+    }
+    cur.close()
+    return {
+        'html': render_template('guide_details.html',
+        name=monster['name'],
+        id=monster['id'],
+        characteristic=monster['characteristics'],
+        helpfulHints=monster['helpfulHints']
+        )
+    }
 
 @app.route('/monsters', methods=['GET'])
 def getAllMonsters():

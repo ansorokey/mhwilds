@@ -11,15 +11,13 @@
     <div id="guide-ctn">
         <div id="guide-list">
             {% for monster in data %}
-            <div class="monster-listing">
+            <div class="monster-listing" data-monsterId={{monster.id}}>
                 <a href="monsters/{{ monster.id }}">{{monster.name}}</a>
             </div>
             {% endfor %}
         </div>
 
-        <div id="guide-details">
-            <p>Monster</p>
-        </div>
+        <div id="guide-details"></div>
     </div>
     <script src="/static/script.js"></script>
 </body>
