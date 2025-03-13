@@ -1,4 +1,5 @@
-INSERT INTO large_monsters (name) VALUES 
+INSERT INTO large_monsters (name) VALUES
+    ('Testmon'),
     ('Chatacabra'),
     ('Quematrice'),
     ('Lala Barina'),
@@ -29,14 +30,27 @@ INSERT INTO large_monsters (name) VALUES
     ('Gore Magala'),
     ('Arkveld');
 
+UPDATE large_monsters SET
+    type='Amphibian',
+    characteristics='This is just a big ol test',
+    helpfulHints='This should be seen on the second page'
+WHERE name = 'Testmon';
+
 INSERT INTO monster_locales (monsterId, plains, forest, basin, cliffs, wyveria) VALUES 
 (
+    (SELECT id from large_monsters WHERE name = 'Testmon'),
+    1, 1, 1, 1, 1
+),(
     (SELECT id from large_monsters WHERE name = 'Chatacabra'),
     1, 0, 0, 0, 0
 );
 
 INSERT INTO hide_weaknesses (name, monsterId, sharp, blunt, ranged, fire, water, thunder, ice, dragon) VALUES
 (
+    'Head',
+    (SELECT id from large_monsters WHERE name = 'Testmon'),
+    4, 3, 2, 1, 2, 3, 4, 0
+),(
     'Head',
     (SELECT id from large_monsters WHERE name = 'Chatacabra'),
     4, 4, 4, 1, 1, 2, 1, 0
@@ -52,18 +66,32 @@ INSERT INTO hide_weaknesses (name, monsterId, sharp, blunt, ranged, fire, water,
 
 INSERT INTO status_effects (monsterId, poison, sleep, paralysis, blastblight, stun, exhaust) VALUES
 (
+    (SELECT id from large_monsters WHERE name = 'Testmon'),
+    3, 2, 1, 0, 1, 2
+),(
     (SELECT id from large_monsters WHERE name = 'Chatacabra'),
     3, 2, 3, 2, 3, 2
 );
 
 INSERT INTO hunting_items (monsterId, flash_pods, sonic_pods, shock_traps, pitfall_traps) VALUES
 (
+    (SELECT id from large_monsters WHERE name = 'Testmon'),
+    1, 0, 1, 0
+),(
     (SELECT id from large_monsters WHERE name = 'Chatacabra'),
     1, 0, 1, 1
 );
 
 INSERT INTO monster_rewards (monsterId, name, description, rarity, value, rank, frequency) VALUES
 (
+    (SELECT id from large_monsters WHERE name = 'Testmon'),
+    'Testmon Scale',
+    'A piece of Testmon\'s hide',
+    6,
+    1700,
+    'low',
+    4
+),(
     (SELECT id from large_monsters WHERE name = 'Chatacabra'),
     'Chatacabra Carapace',
     'Description goes here',

@@ -36,13 +36,15 @@ def getMonster(monsterId):
         'characteristics': res[2],
         'helpfulHints':res[3]
     }
+    habitats = cur.execute(f"SELECT plains, forest, basin, cliffs, wyveria FROM monster_locales WHERE monsterId={monster['id']}").fetchone()
     cur.close()
     return {
         'html': render_template('guide_details.html',
         name=monster['name'],
         id=monster['id'],
-        characteristic=monster['characteristics'],
-        helpfulHints=monster['helpfulHints']
+        characteristics=monster['characteristics'],
+        helpfulHints=monster['helpfulHints'],
+        habitats=habitats
         )
     }
 
@@ -50,7 +52,7 @@ def getMonster(monsterId):
 def getAllMonsters():
     con = sqlite3.connect(dbsrc)
     cur = con.cursor()
-    res = cur.execute("SELECT id, name FROM large_monsters;")
+    res = cur.execute("SELECT id, name FROM large_monsters ORDER BY id;")
     data = [{'name': entry[1], 'id': entry[0]} for entry in res.fetchall()]
     cur.close()
     return render_template(
