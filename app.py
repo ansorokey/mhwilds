@@ -24,7 +24,7 @@ def returnData():
 def getMonster(monsterId):
     con = sqlite3.connect(dbsrc)
     cur = con.cursor()
-    res = cur.execute(f"SELECT id, name, characteristics, helpfulHints FROM large_monsters WHERE id={monsterId};").fetchone()
+    res = cur.execute(f"SELECT id, name, characteristics, helpfulHints, type FROM large_monsters WHERE id={monsterId};").fetchone()
     if res is None:
         con.close()
         return {'message': 'FAIL'}
@@ -34,13 +34,15 @@ def getMonster(monsterId):
         'id': res[0],
         'name': res[1],
         'characteristics': res[2],
-        'helpfulHints':res[3]
+        'helpfulHints':res[3],
+        'type':res[4]
     }
     habitats = cur.execute(f"SELECT plains, forest, basin, cliffs, wyveria FROM monster_locales WHERE monsterId={monster['id']}").fetchone()
     cur.close()
     return {
         'html': render_template('guide_details.html',
         name=monster['name'],
+        type=monster['type'],
         id=monster['id'],
         characteristics=monster['characteristics'],
         helpfulHints=monster['helpfulHints'],

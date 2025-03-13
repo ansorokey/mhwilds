@@ -1,56 +1,66 @@
-<div>Detailed Info</div>
+<div id="guide-content">
 
-<div>
-    <div>Book Title</div>
-    <div>
-        <button>PREV</button>
-        <button>NEXT</button>
+    <div class="f center">Detailed Info</div>
+
+
+    <div class="f s-b">
+        <div id="book-title">Book Title</div>
+        <div>
+            <button class="pg-btn" data-page="Prev">PREV</button>
+            <button class="pg-btn" data-page="1">O</button>
+            <button class="pg-btn" data-page="2">O</button>
+            <button class="pg-btn" data-page="3">O</button>
+            <button class="pg-btn" data-page="4">O</button>
+            <button class="pg-btn" data-page="5">O</button>
+            <button class="pg-btn" data-page="Next">NEXT</button>
+        </div>
     </div>
-</div>
-<div>
-    <h3>{{type}}</h3>
-    <h2>{{name}}</h2>
-</div>
 
-<div>
-    <img src="" alt="">
-    <button id="page-1-switch-btn" data-showa="True">
-        Switch
-    </button>
-</div>
-
-<div id="page1-switch-a" class="">
-    <h4> Known Habitats </h4>
-    
-    <div id="habitats-ctn">
-    {% if habitats[0] == 1 %}
-        <div>Plains</div>
-        {% endif %}
-        
-        {% if habitats[1] == 1 %}
-        <div>Forest</div>
-        {% endif %}
-        
-    {% if habitats[2] == 1 %}
-        <div>Basin</div>
-        {% endif %}
-        
-    {% if habitats[3] == 1 %}
-        <div>Cliffs</div>
-        {% endif %}
-        
-        {% if habitats[4] == 1 %}
-        <div>Wyveria</div>
-        {% endif %}
+    <div class="f c center">
+        <h3>{{type}}</h3>
+        <h2>{{name}}</h2>
     </div>
-    
-    <h4>Characteristics</h4>
-    <p>{{characteristics}}</p>
-</div>
 
-<div id="page1-switch-b" class="hidden">
-    <h4>Special Attack</h4>
     <div>
-        Special attacks go here
+        <img src="" alt="">
+        <button id="page-1-switch-btn" data-showa="True">
+            Switch
+        </button>
+    </div>
+
+    <div id="page1-switch-a" class="">
+        <h4> Known Habitats </h4>
+        
+        <div id="habitats-ctn">
+            {% if habitats[0] == 1 %}
+            <div>Plains</div>
+            {% endif %}
+            
+            {% if habitats[1] == 1 %}
+            <div>Forest</div>
+            {% endif %}
+            
+            {% if habitats[2] == 1 %}
+            <div>Basin</div>
+            {% endif %}
+            
+            {% if habitats[3] == 1 %}
+            <div>Cliffs</div>
+            {% endif %}
+            
+            {% if habitats[4] == 1 %}
+            <div>Wyveria</div>
+            {% endif %}
+        </div>
+        
+        <h4>Characteristics</h4>
+        <p>{{characteristics}}</p>
+    </div>
+
+    <div id="page1-switch-b" class="hidden">
+        <h4>Special Attack</h4>
+        <div>
+            Special attacks go here
+        </div>
     </div>
 </div>

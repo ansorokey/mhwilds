@@ -16,15 +16,34 @@ async function writeGuide(id, page) {
     const guideDetails = document.querySelector('#guide-details');
     guideDetails.innerHTML = `<h2>${data.html}</h2>`;
 
-    if(page === 1) {
-        const page1SwitchBtn = document.querySelector('#page-1-switch-btn');
+    switch(page) {
+        case 1:
+            const page1SwitchBtn = document.querySelector('#page-1-switch-btn');
+            page1SwitchBtn.addEventListener('click', () => {
+                document.querySelector('#page1-switch-a').classList.toggle('hidden');
+                document.querySelector('#page1-switch-b').classList.toggle('hidden');
+                page1SwitchBtn.dataset.showa = page1SwitchBtn.dataset.showa ? "False" : "True"
+            });
 
-        page1SwitchBtn.addEventListener('click', () => {
-            document.querySelector('#page1-switch-a').classList.toggle('hidden');
-            document.querySelector('#page1-switch-b').classList.toggle('hidden');
-            page1SwitchBtn.dataset.showa = page1SwitchBtn.dataset.showa ? "False" : "True"
-        })
-    }
+            document.querySelector('#book-title').innerText = "Monster Ecology";
+            break;
+        
+        case 2:
+            document.querySelector('#book-title').innerText = "Suggested Strategy";
+            break;
+
+        case 3:
+            document.querySelector('#book-title').innerText = "Detailed Strategy";
+            break;
+
+        case 4:
+            document.querySelector('#book-title').innerText = "Obtainable Materials";
+            break;
+
+        case 5:
+            document.querySelector('#book-title').innerText = "Hunting Log";
+            break;        
+        }
 }
 
 window.addEventListener('DOMContentLoaded', () => {

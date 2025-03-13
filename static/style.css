@@ -1,6 +1,11 @@
+/* UNIVERSAL */
 * {
     box-sizing: border-box;
 }
+
+/*  */
+/* TAG */
+/*  */
 
 html, body {
     padding: 0;
@@ -9,14 +14,28 @@ html, body {
     height: 100%;
 }
 
+body {
+    max-height: 99%;
+}
+
+h1 {
+    flex-grow: 0;
+    padding: 0;
+    margin: 0;
+}
+
 div {
     border: 1px solid black;
 }
 
+/*  */
+/* ID */
+/*  */
+
 #guide-ctn {
-    display: flex;
     width: 100%;
     height: 100%;
+    flex-grow: 1;
 }
 
 #guide-list {
@@ -34,7 +53,22 @@ div {
 
 #guide-details {
     width: 40%;
+    max-height:100%;
+    
 }
+
+#habitats-ctn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 1%;
+    row-gap: 3%;
+    padding: 2%;
+}
+
+/*  */
+/* CLASS */
+/*  */
 
 .monster-listing {
     width: 80%;
@@ -44,12 +78,27 @@ div {
     cursor: pointer;
 }
 
-#habitats-ctn {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-}
-
 .hidden {
     display: none;
+}
+
+.f {
+    display: flex;
+}
+
+.c {
+    flex-direction: column;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.end {
+    justify-content: flex-end;
+}
+
+.s-b {
+    justify-content: space-between;
 }
