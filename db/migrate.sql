@@ -21,25 +21,31 @@ CREATE TABLE "monster_locales" (
 
 DROP TABLE IF EXISTS hide_weaknesses;
 CREATE TABLE "hide_weaknesses" (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    name varchar,
-    sharp INT DEFAULT 0,
-    blunt INT DEFAULT 0,
-    ranged INT DEFAULT 0,
-    fire INT DEFAULT 0,
-    water INT DEFAULT 0,
-    thunder INT DEFAULT 0,
-    ice INT DEFAULT 0,
-    dragon INT DEFAULT 0,
-    monsterId INTEGER,
-    FOREIGN KEY ("monsterId") REFERENCES "large_monsters"("id")
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  name varchar,
+  sharp INT DEFAULT 0,
+  blunt INT DEFAULT 0,
+  ranged INT DEFAULT 0,
+  fire INT DEFAULT 0,
+  water INT DEFAULT 0,
+  thunder INT DEFAULT 0,
+  ice INT DEFAULT 0,
+  dragon INT DEFAULT 0,
+  monsterId INTEGER,
+  FOREIGN KEY ("monsterId") REFERENCES "large_monsters"("id")
 );
 
 DROP TABLE IF EXISTS recommended_elements;
-CREATE TABLE recommended_elements (
+CREATE TABLE 'recommended_elements' (
   'id' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  'monster'
-)
+  'monsterId' INTEGER,
+  'fire' BOOLEAN DEFAULT 0,
+  'water' BOOLEAN DEFAULT 0,
+  'thunder' BOOLEAN DEFAULT 0,
+  'ice' BOOLEAN DEFAULT 0,
+  'dragon' BOOLEAN DEFAULT 0,
+  FOREIGN KEY ('monsterId') REFERENCES 'large_monsters'('id')
+);
 
 DROP TABLE IF EXISTS status_effects;
 CREATE TABLE "status_effects" (
@@ -66,7 +72,7 @@ CREATE TABLE "hunting_items" (
 );
 
 DROP TABLE IF EXISTS monster_rewards;
-CREATE TABLE monster_rewards (
+CREATE TABLE 'monster_rewards' (
   "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   "monsterId" INTEGER,
   name varchar,

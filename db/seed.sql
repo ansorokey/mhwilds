@@ -86,7 +86,7 @@ INSERT INTO monster_rewards (monsterId, name, description, rarity, value, rank, 
 (
     (SELECT id from large_monsters WHERE name = 'Testmon'),
     'Testmon Scale',
-    'A piece of Testmon\'s hide',
+    'A piece of Testmon''s hide',
     6,
     1700,
     'low',
@@ -99,4 +99,10 @@ INSERT INTO monster_rewards (monsterId, name, description, rarity, value, rank, 
     1700,
     'low',
     4
+);
+
+INSERT INTO recommended_elements (monsterId, fire, water, thunder, ice, dragon) VALUES 
+(
+    (SELECT id FROM large_monsters WHERE name='Testmon'),
+    1, 1, 1, 1, 0
 );
