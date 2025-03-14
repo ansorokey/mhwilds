@@ -97,9 +97,18 @@ window.addEventListener('DOMContentLoaded', () => {
                 writeGuide(+curId, curPage)
             } else {
                 curPage = +btn.dataset.page;
-                writeGuide(+curId, curPage)
+                writeGuide(+curId, curPage);
             }
-            console.log(curId, curPage);
+
+            // Goes through all buttons, hilighting selected page and clearing others
+            // Does not unhilight next & prev buttons
+            allPageButtons.forEach(btn => {
+                if(btn.dataset.page == curPage) {
+                    btn.classList.replace('fa-regular', 'fa-solid');
+                } else if (btn.dataset.page != 'Next' && btn.dataset.page != 'Prev') { 
+                    btn.classList.replace('fa-solid', 'fa-regular');
+                }
+            });
         })
     })
 
