@@ -35,6 +35,12 @@ CREATE TABLE "hide_weaknesses" (
     FOREIGN KEY ("monsterId") REFERENCES "large_monsters"("id")
 );
 
+DROP TABLE IF EXISTS recommended_elements;
+CREATE TABLE recommended_elements (
+  'id' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  'monster'
+)
+
 DROP TABLE IF EXISTS status_effects;
 CREATE TABLE "status_effects" (
   "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,

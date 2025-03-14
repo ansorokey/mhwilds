@@ -48,6 +48,17 @@ async function writeGuide(id, page) {
             break;
 
         case 4:
+            const page4SwitchBtn = document.querySelector('#page-4-switch-btn');
+            page4SwitchBtn.addEventListener('click', () => {
+                if( page4SwitchBtn.dataset.rank === 'low') {
+                    document.querySelector('#page4-rank').innerText = "High Rank Materials";
+                    page4SwitchBtn.dataset.rank = 'high';
+                } else {
+                    document.querySelector('#page4-rank').innerText = "Low Rank Materials";
+                    page4SwitchBtn.dataset.rank = 'low';
+                }                
+            });
+
             document.querySelector('#book-title').innerText = "Obtainable Materials";
             break;
 

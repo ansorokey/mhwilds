@@ -72,6 +72,27 @@ def getMonster2(monsterId):
         hideParts=hideParts
     )}
 
+@app.route('/monsters/<int:monsterId>/3', methods=['GET'])
+def getMonster3(monsterId):
+    return {
+        'html': render_template(
+        'page3.html'
+    )}
+
+@app.route('/monsters/<int:monsterId>/4', methods=['GET'])
+def getMonster4(monsterId):
+    return {
+        'html': render_template(
+        'page4.html'
+    )}
+
+@app.route('/monsters/<int:monsterId>/5', methods=['GET'])
+def getMonster5(monsterId):
+    return {
+        'html': render_template(
+        'page5.html'
+    )}
+
 @app.route('/monsters', methods=['GET'])
 def getAllMonsters():
     con = sqlite3.connect(dbsrc)
