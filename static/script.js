@@ -1,5 +1,8 @@
 console.log('Hello world');
 
+let curId = 1;
+let curPage = 1;
+
 async function fetchMonsterPage1(id) {
     const res = await fetch(`/monsters/${+id}`, {
         method: 'GET'
@@ -13,8 +16,8 @@ async function fetchMonsterPage1(id) {
 
 async function writeGuide(id, page) {
     const data = await fetchMonsterPage1(id);
-    const guideDetails = document.querySelector('#guide-details');
-    guideDetails.innerHTML = `<h2>${data.html}</h2>`;
+    const pageContent = document.querySelector('#page-content');
+    pageContent.innerHTML = `${data.html}`;
 
     switch(page) {
         case 1:
@@ -46,12 +49,41 @@ async function writeGuide(id, page) {
         }
 }
 
+// When all static html has loaded
 window.addEventListener('DOMContentLoaded', () => {
     const allMonsterTiles = document.querySelectorAll('.monster-listing');
-    
-    allMonsterTiles.forEach(tile => 
-        tile.addEventListener('click', () => writeGuide(tile.dataset.monsterid, 1))
-    )
+    allMonsterTiles.forEach(tile => {        
+        tile.addEventListener('click', () => {
+            writeGuide(+tile.dataset.monsterid, +curPage)
+            curId = +tile.dataset.monsterid
+        })
+    })
 
+    const allPageButtons = document.querySelectorAll('.pg-btn');
+    allPageButtons.forEach(btn => {
+        btn.addEventListener('click', () =>{
+            if(btn.dataset.page === 'Next') {
+                if(curPage == 5) {
+                    curPage = 1;
+                } else {
+                    curPage += 1;
+                }
+                writeGuide(+curId, curPage)
+            } else if(btn.dataset.page === 'Prev'){
+                if(curPage == 1) {                    
+                    curPage = 5;
+                } else {                    
+                    curPage -= 1;
+                }
+                writeGuide(+curId, curPage)
+            } else {
+                curPage = +btn.dataset.page;
+                writeGuide(+curId, curPage)
+            }
+            console.log(curId, curPage);
+        })
+    })
+
+    // Load the first page of the first entry
     writeGuide(1, 1);
 })

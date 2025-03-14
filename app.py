@@ -40,7 +40,7 @@ def getMonster(monsterId):
     habitats = cur.execute(f"SELECT plains, forest, basin, cliffs, wyveria FROM monster_locales WHERE monsterId={monster['id']}").fetchone()
     cur.close()
     return {
-        'html': render_template('guide_details.html',
+        'html': render_template('page1.html',
         name=monster['name'],
         type=monster['type'],
         id=monster['id'],
