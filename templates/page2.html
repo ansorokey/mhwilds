@@ -1,0 +1,66 @@
+<div class="f c center">
+    <h2>{{name}}</h2>
+</div>
+
+<div>
+    <img src="" alt="">
+    <button id="page-2-switch-btn" data-showa="True">
+        Switch
+    </button>
+</div>
+
+<div id="page2-switch-a" class="">
+    <h4> Helpful Hints </h4>
+    
+    <div>
+        <p>{{helpfulHints}}</p>
+    </div>
+</div>
+
+<div id="page2-switch-b" class="hidden">
+    <h4>Hide</h4>
+    <div id="hide-grid">
+        <div class="hide-listing">
+            <div>Name</div>
+            <div>Blunt</div>
+            <div>Sharp</div>
+            <div>Ranged</div>
+            <div>Fire</div>
+            <div>Water</div>
+            <div>Thunder</div>
+            <div>Ice</div>
+            <div>Dragon</div>
+        </div>
+        {% for part in hideParts %}
+        <div class="hide-listing">
+            <div>
+                {{part.name}}
+            </div>
+            <div>
+                {{part.blunt}}
+            </div>
+            <div>
+                {{part.sharp}}
+            </div>
+            <div>
+                {{part.ranged}}
+            </div>
+            <div>
+                {{part.fire}}
+            </div>
+            <div>
+                {{part.water}}
+            </div>
+            <div>
+                {{part.thunder}}
+            </div>
+            <div>
+                {{part.ice}}
+            </div>
+            <div>
+                {{part.dragon}}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

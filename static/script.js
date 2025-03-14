@@ -3,19 +3,20 @@ console.log('Hello world');
 let curId = 1;
 let curPage = 1;
 
-async function fetchMonsterPage1(id) {
-    const res = await fetch(`/monsters/${+id}`, {
+async function fetchMonster(id, page) {
+    const res = await fetch(`/monsters/${+id}/${+page}`, {
         method: 'GET'
     });
     
     if (res.ok) {
         const data = await res.json();
+        console.log(data);
         return data;
     }
 }
 
 async function writeGuide(id, page) {
-    const data = await fetchMonsterPage1(id);
+    const data = await fetchMonster(id, page);
     const pageContent = document.querySelector('#page-content');
     pageContent.innerHTML = `${data.html}`;
 
@@ -32,6 +33,13 @@ async function writeGuide(id, page) {
             break;
         
         case 2:
+            const page2SwitchBtn = document.querySelector('#page-2-switch-btn');
+            page2SwitchBtn.addEventListener('click', () => {
+                document.querySelector('#page2-switch-a').classList.toggle('hidden');
+                document.querySelector('#page2-switch-b').classList.toggle('hidden');
+                page2SwitchBtn.dataset.showa = page2SwitchBtn.dataset.showa ? "False" : "True"
+            });
+
             document.querySelector('#book-title').innerText = "Suggested Strategy";
             break;
 
