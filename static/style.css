@@ -76,6 +76,11 @@ div {
     padding: 2%;
 }
 
+#rec-ele-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 
 /*  */
 /* CLASS */
@@ -95,6 +100,23 @@ div {
     min-height: 100px;
     cursor: pointer;
     border: 1px solid black;
+}
+
+.rec-el-listing {
+    display: flex;
+    align-items: center;
+    height: 40px;;
+}
+
+.rec-el-listing img {
+    width: 25px;
+    height: 25px;
+}
+
+.rec-el-listing p {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .hidden {

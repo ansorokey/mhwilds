@@ -4,7 +4,43 @@
 
 <div>
     <h4>Recommended Elemental Attack</h4>
-    <div id="rec-ele-grid"></div>
+    <div id="rec-ele-grid">
+        {% if elements.fire == 1 %}
+            <div class="rec-el-listing">
+                <img src="/static/images/fire_icon_mhwilds_wiki_guide_25px.webp.png" alt="Fire damage">
+                <p>Fire</p>
+            </div>
+        {% endif %}
+        
+        {% if elements.water == 1 %}
+            <div class="rec-el-listing">
+                <img src="/static/images/water_icon_mhwilds_wiki_guide_25px.webp.png" alt="Water damage">
+                <p>Water</p>
+            </div>
+        {% endif %}
+
+        {% if elements.thunder == 1 %}
+            <div class="rec-el-listing">
+                <img src="/static/images/thunder_icon_mhwilds_wiki_guide_25px.webp.png" alt="Thunder damage">
+                <p>Thunder</p>
+            </div>
+        {% endif %}
+
+        {% if elements.ice == 1 %}
+            <div class="rec-el-listing">
+                <img src="/static/images/ice_icon_mhwilds_wiki_guide_25px.webp.png" alt="Ice damage">
+                <p>Ice</p>
+            </div>
+        {% endif %}
+
+        {% if elements.dragon == 1 %}
+            <div class="rec-el-listing">
+                <img src="/static/images/dragon_icon_mhwilds_wiki_guide_25px.webp.png" alt="Dragon damage">
+                <p>Dragon</p>
+            </div>
+        {% endif %}
+
+    </div>
 </div>
 
 <div>

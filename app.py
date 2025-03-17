@@ -74,9 +74,19 @@ def getMonster2(monsterId):
 
 @app.route('/monsters/<int:monsterId>/3', methods=['GET'])
 def getMonster3(monsterId):
+    con = sqlite3.connect(dbsrc)
+    cur = con.cursor()
+    elements = cur.execute(f'SELECT fire, water, thunder, ice, dragon FROM recommended_elements WHERE monsterId={monsterId}').fetchone()
     return {
         'html': render_template(
-        'page3.html'
+        'page3.html',
+        elements={
+            'fire': elements[0],
+            'water': elements[1],
+            'thunder': elements[2],
+            'ice': elements[3],
+            'dragon': elements[4]
+        }
     )}
 
 @app.route('/monsters/<int:monsterId>/4', methods=['GET'])
